@@ -74,7 +74,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="font-display font-semibold text-navy-700 text-sm group-hover:text-green-600 transition-colors">네이버 카페</span>
-                  <p className="text-navy-400 text-xs">건생병사 카페</p>
+                  <p className="text-navy-400 text-xs">건생병사 실천생활</p>
                 </div>
               </a>
             </div>
