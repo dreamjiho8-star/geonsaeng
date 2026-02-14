@@ -25,10 +25,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-forest-800 text-center">
-          <p className="text-navy-600 text-xs">
+          <p className="text-navy-300 text-xs">
             © {new Date().getFullYear()} 건생병사 치료 프로토콜 한의원 · 문형철 치유연구소
           </p>
-          <p className="text-navy-700 text-xs mt-1">
+          <p className="text-navy-400 text-xs mt-1">
             본 사이트의 내용은 한의사 교육용으로 제작되었습니다.
           </p>
         </div>
