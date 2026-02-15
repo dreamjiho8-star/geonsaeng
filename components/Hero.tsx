@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-start lg:items-center justify-center overflow-hidden pt-28 sm:pt-32 lg:pt-24 pb-[max(4rem,env(safe-area-inset-bottom))] sm:pb-[max(5rem,env(safe-area-inset-bottom))] lg:pb-24">
       {/* Background - warm dark green */}
       <div className="absolute inset-0 bg-gradient-to-br from-forest-900 via-forest-800 to-navy-800" />
 
@@ -29,7 +29,7 @@ export default function Hero() {
       ))}
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
