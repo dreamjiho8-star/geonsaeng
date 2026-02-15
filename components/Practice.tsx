@@ -148,7 +148,7 @@ export default function Practice() {
         >
           <div className="inline-block p-8 rounded-2xl bg-gradient-to-r from-forest-500/10 via-forest-400/5 to-forest-500/10 border border-forest-400/20">
             <p className="font-display text-xl sm:text-2xl text-white italic">
-              &ldquo;건강한 세포가 많아진 만큼 내 몸은 건강해진다&rdquo;
+              &ldquo;건강한 세포가 많아지는 만큼 내 몸은 건강해진다&rdquo;
             </p>
           </div>
         </motion.div>

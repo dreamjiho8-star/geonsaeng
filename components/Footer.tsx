@@ -15,18 +15,18 @@ export default function Footer() {
 
           {/* Nav */}
           <nav className="flex flex-wrap justify-center gap-6 text-sm">
+            <a href="#acupuncture" className="text-navy-500 hover:text-forest-300 transition-colors">건생병사 프로그램</a>
+            <a href="#fermented" className="text-navy-500 hover:text-forest-300 transition-colors">발효한약</a>
             <a href="#principles" className="text-navy-500 hover:text-forest-300 transition-colors">핵심원리</a>
             <a href="#challenges" className="text-navy-500 hover:text-forest-300 transition-colors">4가지 과제</a>
             <a href="#nutrients" className="text-navy-500 hover:text-forest-300 transition-colors">영양소</a>
-            <a href="#fermented" className="text-navy-500 hover:text-forest-300 transition-colors">발효한약</a>
-            <a href="#acupuncture" className="text-navy-500 hover:text-forest-300 transition-colors">침치료</a>
             <a href="#contact" className="text-navy-500 hover:text-forest-300 transition-colors">문의</a>
           </nav>
         </div>
 
         <div className="mt-8 pt-8 border-t border-forest-800 text-center">
           <p className="text-navy-300 text-xs">
-            © {new Date().getFullYear()} 건생병사 치료 프로토콜 한의원 · 문형철 치유연구소
+            © {new Date().getFullYear()} 건생병사 치료 프로토콜 한의원 · 문형철 치유연구소 · JHC
           </p>
           <p className="text-navy-400 text-xs mt-1">
             본 사이트의 내용은 한의사 교육용으로 제작되었습니다.

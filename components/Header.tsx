@@ -1,15 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navItems = [
+  { label: '건생병사 프로그램', href: '#acupuncture' },
+  { label: '발효한약', href: '#fermented' },
   { label: '핵심원리', href: '#principles' },
   { label: '4가지 과제', href: '#challenges' },
   { label: '영양소', href: '#nutrients' },
-  { label: '발효한약', href: '#fermented' },
-  { label: '침치료', href: '#acupuncture' },
   { label: '실천가이드', href: '#practice' },
   { label: '문의', href: '#contact' },
 ]
@@ -17,12 +17,54 @@ const navItems = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const toggleButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!mobileOpen) return
+
+    const menuEl = mobileMenuRef.current
+    if (!menuEl) return
+
+    const focusableSelectors =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    const focusables = Array.from(
+      menuEl.querySelectorAll<HTMLElement>(focusableSelectors)
+    )
+
+    focusables[0]?.focus()
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false)
+        toggleButtonRef.current?.focus()
+        return
+      }
+
+      if (event.key !== 'Tab' || focusables.length === 0) return
+
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      const active = document.activeElement
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [mobileOpen])
 
   return (
     <header
@@ -64,9 +106,12 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
+          ref={toggleButtonRef}
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-white p-2"
-          aria-label="메뉴 열기"
+          className="lg:hidden text-white p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-300/70"
+          aria-label={mobileOpen ? '메뉴 닫기' : '메뉴 열기'}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -76,6 +121,8 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            ref={mobileMenuRef}
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -86,8 +133,20 @@ export default function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-navy-200 hover:text-forest-300 hover:bg-forest-800/50 rounded-lg transition-all"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setMobileOpen(false)
+
+                    const target = document.querySelector(item.href)
+                    if (!target) return
+
+                    // Wait for close animation, then perform smooth scroll.
+                    setTimeout(() => {
+                      target.scrollIntoView({ behavior: 'smooth' })
+                      history.replaceState(null, '', item.href)
+                    }, 300)
+                  }}
+                  className="px-4 py-3 text-navy-200 hover:text-forest-300 hover:bg-forest-800/50 rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-300/70"
                 >
                   {item.label}
                 </a>

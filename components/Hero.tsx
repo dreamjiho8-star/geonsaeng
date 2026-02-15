@@ -36,9 +36,9 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-forest-400/30 bg-forest-400/5 mb-8">
-            <span className="text-forest-300 text-sm tracking-widest uppercase font-body">
-              Bio-Science Korean Medicine
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-forest-400/30 bg-forest-400/5 mb-8">
+            <span className="text-forest-200 text-lg sm:text-xl tracking-[0.35em] font-display">
+              建生病死
             </span>
           </div>
         </motion.div>
@@ -48,11 +48,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Hanja */}
-          <p className="text-forest-300/60 font-display text-lg mb-2 tracking-[0.3em]">
-            建生病死
-          </p>
-
           {/* Main Title */}
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
             건생
@@ -92,21 +87,9 @@ export default function Hero() {
             증상만 쫓아다니는 치료는 이제 멈춰야 합니다.
           </p>
 
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#principles"
-              className="inline-flex items-center justify-center px-10 py-4 bg-forest-600/60 text-navy-100 font-semibold rounded-xl hover:bg-forest-500/70 transition-all duration-300"
-            >
-              핵심원리
-            </a>
-            <a
-              href="#practice"
-              className="inline-flex items-center justify-center px-10 py-4 bg-forest-600/60 text-navy-100 font-semibold rounded-xl hover:bg-forest-500/70 transition-all duration-300"
-            >
-              실천 가이드
-            </a>
-          </div>
+  <p className="text-forest-300/80 text-sm tracking-widest mt-12 mb-4">
+  더 알아보기 ↓
+</p>
         </motion.div>
 
         {/* Three pillars preview */}
@@ -114,21 +97,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto"
+          className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto"
         >
           {[
-            { icon: '🔬', label: '기능의학', sub: 'Functional Medicine' },
-            { icon: '🌿', label: '발효 한약', sub: 'Fermented Herbal Medicine' },
-            { icon: '📍', label: '내성없는 침치료', sub: 'Acupuncture Therapy' },
+            { icon: '🔬', label: '건생병사 프로그램', href: '#acupuncture' },
+            { icon: '🌿', label: '발효 한약', href: '#fermented' },
+            { icon: '⚙️', label: '건생병사 핵심원리', href: '#principles' },
           ].map((item, i) => (
-            <div
+            <a
               key={i}
-              className="flex flex-col items-center gap-2 px-4 py-5 rounded-xl bg-forest-800/40 border border-forest-700/50 hover:border-forest-400/30 transition-all duration-300"
+              href={item.href}
+              className="flex flex-col items-center gap-2 px-4 py-6 sm:py-5 rounded-xl bg-forest-700/50 border border-forest-300/25 shadow-lg shadow-black/25 backdrop-blur-sm hover:bg-forest-600/55 hover:border-forest-200/40 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-300/60 transition-all duration-300"
             >
               <span className="text-2xl">{item.icon}</span>
               <span className="text-white font-display font-semibold">{item.label}</span>
-              <span className="text-navy-400 text-xs tracking-wider">{item.sub}</span>
-            </div>
+            </a>
           ))}
         </motion.div>
       </div>

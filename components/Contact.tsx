@@ -45,15 +45,15 @@ export default function Contact() {
             </div>
 
             {/* Info cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 mb-8">
               <a
                 href="https://www.youtube.com/@Cellheal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-5 rounded-xl bg-white border border-navy-100 hover:border-red-300 hover:shadow-md transition-all duration-300 group"
+                className="flex items-center gap-4 p-5 rounded-xl bg-white border border-navy-100 hover:border-red-300 hover:shadow-md transition-all duration-300 group min-h-[72px]"
               >
                 <div className="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center text-white flex-shrink-0">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.5c-1 .3-1.7 1.1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.5 9.5.5 9.5.5s7.6 0 9.5-.5c1-.3 1.7-1.1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>
                   </svg>
                 </div>
@@ -67,11 +67,13 @@ export default function Contact() {
                 href="https://cafe.naver.com/gsbscafe?tc=shared_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-5 rounded-xl bg-white border border-navy-100 hover:border-green-300 hover:shadow-md transition-all duration-300 group"
+                className="flex items-center gap-4 p-5 rounded-xl bg-white border border-navy-100 hover:border-green-300 hover:shadow-md transition-all duration-300 group min-h-[72px]"
               >
-                <div className="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center text-white flex-shrink-0 font-bold text-lg">
-                  N
-                </div>
+                <div
+                  aria-label="네이버 로고"
+                  className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-no-repeat bg-[length:200%_200%] bg-left-top"
+                  style={{ backgroundImage: "url('/naver-icon-file.png')" }}
+                />
                 <div>
                   <span className="font-display font-semibold text-navy-700 text-sm group-hover:text-green-600 transition-colors">네이버 카페</span>
                   <p className="text-navy-400 text-xs">건생병사 실천생활</p>

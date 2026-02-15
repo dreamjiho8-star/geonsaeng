@@ -14,11 +14,11 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
+      <Acupuncture />
+      <Fermented />
       <Principles />
       <Challenges />
       <Nutrients />
-      <Fermented />
-      <Acupuncture />
       <Practice />
       <Contact />
       <Footer />
