@@ -45,12 +45,12 @@ export default function Contact() {
             </div>
 
             {/* Info cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <a
                 href="https://www.youtube.com/@Cellheal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl bg-white border border-navy-100 hover:border-red-300 hover:shadow-md transition-all duration-300 group min-h-[72px] text-center sm:text-left"
+                className="flex flex-row items-center gap-4 p-5 rounded-xl bg-white border border-navy-100 hover:border-red-300 hover:shadow-md transition-all duration-300 group min-h-[72px] text-left"
               >
                 <div className="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center text-white flex-shrink-0">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -67,7 +67,7 @@ export default function Contact() {
                 href="https://cafe.naver.com/gsbscafe?tc=shared_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl bg-white border border-navy-100 hover:border-green-300 hover:shadow-md transition-all duration-300 group min-h-[72px] text-center sm:text-left"
+                className="flex flex-row items-center gap-4 p-5 rounded-xl bg-white border border-navy-100 hover:border-green-300 hover:shadow-md transition-all duration-300 group min-h-[72px] text-left"
               >
                 <div
                   aria-label="네이버 로고"
